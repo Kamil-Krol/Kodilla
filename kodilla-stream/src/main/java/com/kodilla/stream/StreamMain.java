@@ -1,13 +1,17 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.lambda.ExecuteSaySomething;
-import com.kodilla.stream.lambda.Processor;
-import com.kodilla.stream.lambda.SaySomething;
+import com.kodilla.stream.beautifier.PoemBeautifier;
+
+import java.util.Locale;
 
 public class StreamMain {
     public static void main(String[] args) {
-        Processor processor = new Processor();
-        ExecuteSaySomething executeSaySomething = new ExecuteSaySomething();
-        processor.execute(executeSaySomething);
+
+     PoemBeautifier beautifier = new PoemBeautifier();
+       beautifier.beautify("knfnkfdnk", text -> text.toUpperCase());
+       beautifier.beautify("FFWWDDSS", text -> text.toLowerCase());
+       beautifier.beautify("jddckcdkmkc", text -> "ABC"+text+"ABC");
+       beautifier.beautify("dfdjfdjf", text -> text.replace('d','b'));
+       beautifier.beautify("jjfjfjjvf", text -> text.repeat(2));
     }
 }
