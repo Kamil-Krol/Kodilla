@@ -15,12 +15,12 @@ public class ArrayOperationsTestSuite {
     void testGetAverage()
     {
         //Given
-        int[] tab = {3,4,6,7,5,3,2,6,9,0,-2,-5,3,4,6,8,2,3,6,7};
+        int[] tab = {2,4,6,8,4,3,5,6,7,9,-2,-4};
 
         //When
         double result = getAverage(tab);
 
         //Then
-        assertEquals(7.7, result);
+        assertEquals(4, result);
     }
 }
