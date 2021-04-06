@@ -1,12 +1,28 @@
 package com.kodilla.good.patterns.challenges;
 
-public class VendingMachine {
-    private Product product;
-    private Available available;
+import java.time.LocalDateTime;
 
-    public VendingMachine(final Product product,final Available available) {
-        this.product = product;
-        this.available = available;
+public class VendingMachine {
+    private InformationService informationService;
+    private RentalService rentalService;
+    private RentalRepository rentalRepository;
+
+    public VendingMachine(final InformationService informationService, final RentalService rentalService, final RentalRepository rentalRepository) {
+        this.informationService = informationService;
+        this.rentalService = rentalService;
+        this.rentalRepository = rentalRepository;
     }
 
+    public RentalDto process(final RentRequest rentRequest) {
+        boolean isRented = rentalService.rent(rentRequest.getUser(), rentRequest.getFrom(),
+                rentRequest.getTo());
+
+        if (isRented) {
+            informationService.inform(rentRequest.getUser());
+            rentalRepository.createRental(rentRequest.getUser(), rentRequest.getFrom(), rentRequest.getTo());
+            return new RentalDto(rentRequest.getUser(), true);
+        } else {
+            return new RentalDto(rentRequest.getUser(), false);
+        }
+    }
 }
