@@ -1,17 +1,13 @@
 package com.kodilla.good.patterns.challenges;
 
 public class User {
-    private User user;
+    private String user;
 
-    public User(User user) {
+    public User(String user) {
         this.user = user;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }
