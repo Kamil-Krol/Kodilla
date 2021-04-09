@@ -1,8 +1,5 @@
 package com.kodilla.good.patterns.challenges;
 
 public interface InformationService {
-    default void inform(User user)
-    {
-        System.out.println("Successful transaction");
-    }
+     void inform(User user, boolean available);
 }

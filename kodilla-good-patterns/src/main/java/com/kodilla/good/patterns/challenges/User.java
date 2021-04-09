@@ -7,7 +7,8 @@ public class User {
         this.user = user;
     }
 
-    public String getUser() {
+    @Override
+    public String toString() {
         return user;
     }
 }
