@@ -1,5 +1,5 @@
 package com.kodilla.good.patterns.challenges;
 
 public interface InformationService {
-     void inform(User user, boolean available);
+     void inform(User user, boolean isAvailable);
 }

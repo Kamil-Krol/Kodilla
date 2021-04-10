@@ -5,13 +5,13 @@ import java.time.LocalDateTime;
 public class BuyRequest {
     private User user;
     private LocalDateTime transactionTime;
-    public boolean available;
-    public Product product;
+    private boolean isAvailable;
+    private Product product;
 
-    public BuyRequest(final User user, final LocalDateTime transactionTime, boolean available,Product product) {
+    public BuyRequest(final User user, final LocalDateTime transactionTime, boolean isAvailable,Product product) {
         this.user = user;
         this.transactionTime = transactionTime;
-        this.available = available;
+        this.isAvailable = isAvailable;
         this.product = product;
 
     }
@@ -22,7 +22,7 @@ public class BuyRequest {
 
     public boolean getAvailable()
     {
-        return available;
+        return isAvailable;
     }
 
     public Product getProduct()
