@@ -1,8 +1,8 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.zad2;
 
-import com.kodilla.good.patterns.challenges.domain.BuyRequest;
-import com.kodilla.good.patterns.challenges.domain.Product;
-import com.kodilla.good.patterns.challenges.domain.User;
+import com.kodilla.good.patterns.challenges.zad2.domain.BuyRequest;
+import com.kodilla.good.patterns.challenges.zad2.domain.Product;
+import com.kodilla.good.patterns.challenges.zad2.domain.User;
 
 import java.time.LocalDateTime;
 

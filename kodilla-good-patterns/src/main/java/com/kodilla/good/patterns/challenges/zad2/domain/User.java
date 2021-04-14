@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.domain;
+package com.kodilla.good.patterns.challenges.zad2.domain;
 
 public class User {
     private String user;

@@ -1,10 +1,10 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.zad2;
 
 
-import com.kodilla.good.patterns.challenges.domain.BuyRequest;
-import com.kodilla.good.patterns.challenges.repositories.MyRepository;
-import com.kodilla.good.patterns.challenges.services.MyInformationService;
-import com.kodilla.good.patterns.challenges.services.MyService;
+import com.kodilla.good.patterns.challenges.zad2.domain.BuyRequest;
+import com.kodilla.good.patterns.challenges.zad2.repositories.MyRepository;
+import com.kodilla.good.patterns.challenges.zad2.services.MyInformationService;
+import com.kodilla.good.patterns.challenges.zad2.services.MyService;
 
 public class Application {
     public static void main(String[] args) {

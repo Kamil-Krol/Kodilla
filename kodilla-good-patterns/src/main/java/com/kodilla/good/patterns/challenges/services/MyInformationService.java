@@ -1,4 +1,6 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.services;
+
+import com.kodilla.good.patterns.challenges.domain.User;
 
 public class MyInformationService implements InformationService{
     public  void inform(User user, boolean isAvailable)

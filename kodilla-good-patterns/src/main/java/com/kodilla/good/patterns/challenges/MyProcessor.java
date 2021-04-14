@@ -1,8 +1,14 @@
 package com.kodilla.good.patterns.challenges;
 
+import com.kodilla.good.patterns.challenges.domain.BuyRequest;
+import com.kodilla.good.patterns.challenges.domain.SellDto;
+import com.kodilla.good.patterns.challenges.repositories.Repository;
+import com.kodilla.good.patterns.challenges.services.InformationService;
+import com.kodilla.good.patterns.challenges.services.Service;
+
 public class MyProcessor {
     private Repository repository;
-    private  Service service;
+    private Service service;
     private InformationService informationService;
 
 

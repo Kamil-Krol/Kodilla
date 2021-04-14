@@ -1,10 +1,10 @@
-package com.kodilla.good.patterns.challenges;
+package com.kodilla.good.patterns.challenges.zad2;
 
-import com.kodilla.good.patterns.challenges.domain.BuyRequest;
-import com.kodilla.good.patterns.challenges.domain.SellDto;
-import com.kodilla.good.patterns.challenges.repositories.Repository;
-import com.kodilla.good.patterns.challenges.services.InformationService;
-import com.kodilla.good.patterns.challenges.services.Service;
+import com.kodilla.good.patterns.challenges.zad2.domain.BuyRequest;
+import com.kodilla.good.patterns.challenges.zad2.domain.SellDto;
+import com.kodilla.good.patterns.challenges.zad2.repositories.Repository;
+import com.kodilla.good.patterns.challenges.zad2.services.InformationService;
+import com.kodilla.good.patterns.challenges.zad2.services.Service;
 
 public class MyProcessor {
     private Repository repository;

@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.domain;
+package com.kodilla.good.patterns.challenges.zad2.domain;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,7 @@ public class BuyRequest {
     private boolean isAvailable;
     private Product product;
 
-    public BuyRequest(final User user, final LocalDateTime transactionTime, boolean isAvailable,Product product) {
+    public BuyRequest(final User user, final LocalDateTime transactionTime, boolean isAvailable, Product product) {
         this.user = user;
         this.transactionTime = transactionTime;
         this.isAvailable = isAvailable;

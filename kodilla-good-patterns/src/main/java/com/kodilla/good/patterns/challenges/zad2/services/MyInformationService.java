@@ -1,8 +1,8 @@
-package com.kodilla.good.patterns.challenges.services;
+package com.kodilla.good.patterns.challenges.zad2.services;
 
-import com.kodilla.good.patterns.challenges.domain.User;
+import com.kodilla.good.patterns.challenges.zad2.domain.User;
 
-public class MyInformationService implements InformationService{
+public class MyInformationService implements InformationService {
     public  void inform(User user, boolean isAvailable)
     {
         if(isAvailable) {

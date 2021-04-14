@@ -1,5 +1,9 @@
 package com.kodilla.good.patterns.challenges;
 
+import com.kodilla.good.patterns.challenges.domain.BuyRequest;
+import com.kodilla.good.patterns.challenges.domain.Product;
+import com.kodilla.good.patterns.challenges.domain.User;
+
 import java.time.LocalDateTime;
 
 public class BuyRequestRetriever {
