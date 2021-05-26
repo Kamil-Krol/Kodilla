@@ -41,7 +41,7 @@ public final class Task {
         return created;
     }
 
-    @Column(name="DURATIOoN")
+    @Column(name="DURATION")
     public int getDuration() {
         return duration;
     }
