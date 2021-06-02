@@ -12,6 +12,9 @@ public class TaskList {
     private String listName;
     private String descryption;
 
+    public TaskList() {
+    }
+
     public TaskList(int id, String listName, String descryption) {
         this.id = id;
         this.listName = listName;
