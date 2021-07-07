@@ -5,17 +5,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "TASKSLIST")
-public class TaskList {
+@Table(name = "TASKSLIST2")
+public class TaskList2 {
 
     private int id;
     private String listName;
     private String descryption;
 
-    public TaskList() {
+    public TaskList2() {
     }
 
-    public TaskList(int id, String listName, String descryption) {
+    public TaskList2(int id, String listName, String descryption) {
         this.id = id;
         this.listName = listName;
         this.descryption = descryption;

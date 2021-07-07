@@ -2,7 +2,7 @@ package com.kodilla.hibernate.tasklist.dao;
 
 
 
-import com.kodilla.hibernate.tasklist.TaskList;
+import com.kodilla.hibernate.tasklist.TaskList2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,7 +12,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class TaskListDaoTestSuite {
+public class TaskList2DaoTestSuite {
 
     @Autowired
     private TaskListDao taskListDao;
@@ -21,11 +21,11 @@ public class TaskListDaoTestSuite {
     void testFindByListName()
     {
         //Given
-        TaskList taskList = new TaskList(1,"list","test");
-        taskListDao.save(taskList);
-        String listName = taskList.getListName();
+        TaskList2 taskList2 = new TaskList2(1,"list","test");
+        taskListDao.save(taskList2);
+        String listName = taskList2.getListName();
         //When
-        List<TaskList> readTasks = taskListDao.findByListName(listName);
+        List<TaskList2> readTasks = taskListDao.findByListName(listName);
         //Then
         assertEquals(1, readTasks.size());
 
