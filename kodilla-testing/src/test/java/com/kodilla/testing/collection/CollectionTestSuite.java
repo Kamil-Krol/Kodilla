@@ -38,9 +38,10 @@ public class CollectionTestSuite {
         //Given
         OddNumbersExterminator evenNumbers = new OddNumbersExterminator(numbers);
         //When
-        List<Integer> evenList = evenNumbers.exterminate(numbers);
+        List<Integer> evens = evenNumbers.exterminate(numbers);
+
         //Then
-        Assertions.assertEquals(numbers,evenList);
+        Assertions.assertEquals(numbers,evens);
     }
 
     @DisplayName("when create normal List, " +
@@ -59,22 +60,21 @@ public class CollectionTestSuite {
         //Given
         OddNumbersExterminator evenNumbers = new OddNumbersExterminator(numbers);
         //When
-        List<Integer> evenList = evenNumbers.exterminate(numbers);
+        List<Integer> evens = evenNumbers.exterminate(numbers);
         //Then
-        Assertions.assertNotEquals(numbers, evenList);
+        Assertions.assertNotEquals(numbers, evens);
     }
     @DisplayName("when create array as list, " +
             "then exterminate should return  List without odd numbers")
     @Test
     public void testOddNumbersExterminatorArrayAsList() {
-        Integer array[] = new Integer[]{2, 7, 4, 8, 4, 1, 4, 6, 7, 0, 6, 5};
-        List<Integer> numbers = Arrays.asList(array);
+        List<Integer> numbers = Arrays.asList(2, 7, 4, 8, 4, 1, 4, 6, 7, 0, 6, 5);
 
         //Given
         OddNumbersExterminator evenNumbers = new OddNumbersExterminator(numbers);
         //When
-        List<Integer> evenList = evenNumbers.exterminate(numbers);
+        List<Integer> evens = evenNumbers.exterminate(numbers);
         //Then
-        Assertions.assertNotEquals(numbers, evenList);
+        Assertions.assertNotEquals(numbers, evens);
     }
 }

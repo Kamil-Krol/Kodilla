@@ -13,17 +13,17 @@ public class OddNumbersExterminator {
 
     public List<Integer> exterminate(List<Integer> numbers)
     {
-        List<Integer> evenList = new LinkedList<>();
-        for (Integer list : numbers)
+        List<Integer> evens = new LinkedList<>();
+        for (Integer number : numbers)
         {
 
-            if (list%2==0)
+            if (number%2==0)
             {
-                evenList.add(list);
+                evens.add(number);
             }
 
         }
 
-        return evenList;
+        return evens;
     }
 }
