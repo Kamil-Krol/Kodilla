@@ -7,7 +7,6 @@ public class OddNumbersExterminator {
 
 
 
-    public OddNumbersExterminator(){ }
 
     public List<Integer> exterminate(List<Integer> numbers)
     {
