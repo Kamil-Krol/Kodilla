@@ -11,8 +11,8 @@ import org.junit.jupiter.api.Test;
 @DisplayName("Test for shape collector")
 public class ShapeCollectorTestSuite {
     //Given
-    Circle circle = new Circle();
-    Square square = new Square();
+    Circle circle = new Circle(2);
+    Square square = new Square(2);
     ShapeCollector shapeCollector = new ShapeCollector();
 
     @Test

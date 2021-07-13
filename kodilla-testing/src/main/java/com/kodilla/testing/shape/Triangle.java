@@ -1,6 +1,14 @@
 package com.kodilla.testing.shape;
 
 public class Triangle implements Shape{
+
+    private double side, height;
+
+    public Triangle(double side, double height) {
+        this.side = side;
+        this.height = height;
+    }
+
     public String getShapeName()
     {
 
@@ -11,6 +19,6 @@ public class Triangle implements Shape{
 
     public double getField()
     {
-        return 1;
+        return 0.5 * side * height;
     }
 }
