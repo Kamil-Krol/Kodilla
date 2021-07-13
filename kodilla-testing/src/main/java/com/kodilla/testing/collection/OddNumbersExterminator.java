@@ -4,12 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class OddNumbersExterminator {
-    private List<Integer> numbers= new LinkedList<>();
 
 
-    public OddNumbersExterminator(List<Integer> numbers) {
-        this.numbers = numbers;
-    }
+
+    public OddNumbersExterminator(){ }
 
     public List<Integer> exterminate(List<Integer> numbers)
     {

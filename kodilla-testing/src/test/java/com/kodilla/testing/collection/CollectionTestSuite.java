@@ -36,7 +36,7 @@ public class CollectionTestSuite {
     {
         List<Integer> numbers = new LinkedList<>();
         //Given
-        OddNumbersExterminator evenNumbers = new OddNumbersExterminator(numbers);
+        OddNumbersExterminator evenNumbers = new OddNumbersExterminator();
         //When
         List<Integer> evens = evenNumbers.exterminate(numbers);
 
@@ -58,23 +58,24 @@ public class CollectionTestSuite {
         }
 
         //Given
-        OddNumbersExterminator evenNumbers = new OddNumbersExterminator(numbers);
+        OddNumbersExterminator evenNumbers = new OddNumbersExterminator();
         //When
         List<Integer> evens = evenNumbers.exterminate(numbers);
         //Then
         Assertions.assertNotEquals(numbers, evens);
     }
+
     @DisplayName("when create array as list, " +
             "then exterminate should return  List without odd numbers")
     @Test
     public void testOddNumbersExterminatorArrayAsList() {
         List<Integer> numbers = Arrays.asList(2, 7, 4, 8, 4, 1, 4, 6, 7, 0, 6, 5);
-
+        List<Integer> numbers2 = Arrays.asList(2, 4, 8, 4, 4, 6, 0, 6);
         //Given
-        OddNumbersExterminator evenNumbers = new OddNumbersExterminator(numbers);
+        OddNumbersExterminator evenNumbers = new OddNumbersExterminator();
         //When
         List<Integer> evens = evenNumbers.exterminate(numbers);
         //Then
-        Assertions.assertNotEquals(numbers, evens);
+        Assertions.assertEquals(numbers2, evens);
     }
 }
