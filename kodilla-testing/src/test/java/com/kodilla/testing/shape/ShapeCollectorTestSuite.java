@@ -52,12 +52,13 @@ public class ShapeCollectorTestSuite {
     void testShowFigures()
     {
         //Given
+        String figureNames = "Circle, Square";
         shapeCollector.addFigure(circle);
         shapeCollector.addFigure(square);
         //When
         shapeCollector.showFigures();
         //Then
-        Assertions.assertEquals(2, shapeCollector.getSizeOfTheList());
+        Assertions.assertEquals(figureNames, shapeCollector.showFigures());
     }
 
 }

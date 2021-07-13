@@ -2,6 +2,8 @@ package com.kodilla.testing.shape;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ShapeCollector {
     private List<Shape> list = new ArrayList<>();
@@ -31,13 +33,12 @@ public class ShapeCollector {
         return list.size();
     }
 
-    public void showFigures()
+    public String showFigures()
     {
 
-        for (Shape figure: list) {
-
-            System.out.println(figure.getShapeName());
-        }
+        String names = list.stream().map(e -> e.getShapeName()).collect(Collectors.joining(", "));
+           return names;
     }
+
 
 }
