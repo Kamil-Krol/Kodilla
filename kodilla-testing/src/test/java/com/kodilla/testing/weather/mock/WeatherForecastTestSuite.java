@@ -12,7 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.mockito.Mockito.mock;
+
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -24,8 +24,7 @@ public class WeatherForecastTestSuite {
     private Map<String, Double> temperaturesMap;
 
     @BeforeEach
-    public void before()
-    {
+    public void before() {
         temperaturesMap = new HashMap<>();
         temperaturesMap.put("Rzeszow", 25.5);
         temperaturesMap.put("Krakow", 26.2);
@@ -34,18 +33,11 @@ public class WeatherForecastTestSuite {
         temperaturesMap.put("Gdansk", 26.1);
         when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
         weatherForecast = new WeatherForecast(temperaturesMock);
-
     }
-
-
-
 
     @Test
     void testCalculateForecastWithMock() {
         //Given
-
-
-
         //When
         int quantityOfSensors = weatherForecast.calculateForecast().size();
 
@@ -53,36 +45,24 @@ public class WeatherForecastTestSuite {
         Assertions.assertEquals(5, quantityOfSensors);
     }
 
-
     @Test
-    void testAverageTemperature()
-    {
+    void testAverageTemperature() {
         //Given
-
-        int sizeOfTheMap = temperaturesMap.size();
-
-
         //When
         double averageTemperature = weatherForecast.calculateAverageTemperature();
 
         //Then
-        Assertions.assertEquals(25.56,averageTemperature/sizeOfTheMap);
+        Assertions.assertEquals(25.56, averageTemperature);
     }
 
     @Test
-    void testMedianTemperatures()
-    {
+    void testMedianTemperatures() {
         //Given
-
-
-
-
-
         //When
         double medianTemperature = weatherForecast.calculateMedianTemperature();
 
         //Then
-        Assertions.assertEquals(25.5,medianTemperature);
+        Assertions.assertEquals(25.5, medianTemperature);
     }
 
 }
