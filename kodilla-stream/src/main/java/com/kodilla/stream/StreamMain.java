@@ -1,24 +1,29 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.lambda.*;
+import com.kodilla.stream.reference.FunctionalCalculator;
 
-import com.kodilla.stream.book.Book;
-import com.kodilla.stream.book.BookDirectory;
-import com.kodilla.stream.person.People;
-
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
+        Forum forum = new Forum();
 
-        BookDirectory theBookDirectory = new BookDirectory();
-        String theResultStringOfBooks = theBookDirectory.getList().stream()  // [1]
-                .filter(book -> book.getYearOfPublication() > 2005)
-                .map(Book::toString)
-                .collect(Collectors.joining(",\n", "<<", ">>"));                    // [2]
+        Map<Integer, ForumUser> theResultMapOfForumUsers = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> LocalDateTime.now().getYear() - forumUser.getDateOfBirth().getYear() >= 20)
+                .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
+                .collect(Collectors.toMap(forumUser -> forumUser.getUserID(),forumUser -> forumUser));
 
-        System.out.println(theResultStringOfBooks);
+        theResultMapOfForumUsers.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(entry-> System.out.println(entry));
+
 
         /*BookDirectory theBookDirectory = new BookDirectory();
 
