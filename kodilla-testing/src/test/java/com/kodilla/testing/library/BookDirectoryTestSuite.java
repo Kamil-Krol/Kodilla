@@ -6,7 +6,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -80,6 +82,44 @@ public class BookDirectoryTestSuite {
         // Then
         assertEquals(0, theListOfBooks10.size());                                     // [5]
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());    // [6]
+
+    }
+
+    @Test
+    void testListBooksInHandsOf()
+    {
+        //Given
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser1 = new LibraryUser("John","Johns","1");
+        LibraryUser libraryUser2 = new LibraryUser("Jan","Kowalczyk","2");
+        LibraryUser libraryUser3 = new LibraryUser("Kacper","Kowalski","3");
+
+        List<Book> user1Books = new ArrayList<Book>();
+        List<Book> user2Books = generateListOfNBooks(1);
+        List<Book> user3Books = generateListOfNBooks(5);
+
+        Map<LibraryUser,List<Book>> rentedBooks = new HashMap<>();
+
+        rentedBooks.put(libraryUser1,user1Books);
+        rentedBooks.put(libraryUser2,user2Books);
+        rentedBooks.put(libraryUser3,user3Books);
+
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser1))
+                .thenReturn(user1Books);
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser2))
+                .thenReturn(user2Books);
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser3))
+                .thenReturn(user3Books);
+
+        //When
+        List<Book> userWithZeroBooks = bookLibrary.listBooksInHandsOf(libraryUser1);
+        List<Book> userWithOneBook = bookLibrary.listBooksInHandsOf(libraryUser2);
+        List<Book> userWithFiveBooks = bookLibrary.listBooksInHandsOf(libraryUser3);
+        //Then
+        assertEquals(0, userWithZeroBooks.size());                                         // [14]
+        assertEquals(1, userWithOneBook.size());                                       // [15]
+        assertEquals(5, userWithFiveBooks.size());
 
     }
 
