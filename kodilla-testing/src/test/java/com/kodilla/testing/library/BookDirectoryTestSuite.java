@@ -89,14 +89,16 @@ public class BookDirectoryTestSuite {
     void testListBooksInHandsOf()
     {
         //Given
+        List<Book> user1Books = new ArrayList<Book>();
+        List<Book> user2Books = generateListOfNBooks(1);
+        List<Book> user3Books = generateListOfNBooks(5);
+
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         LibraryUser libraryUser1 = new LibraryUser("John","Johns","1");
         LibraryUser libraryUser2 = new LibraryUser("Jan","Kowalczyk","2");
         LibraryUser libraryUser3 = new LibraryUser("Kacper","Kowalski","3");
 
-        List<Book> user1Books = new ArrayList<Book>();
-        List<Book> user2Books = generateListOfNBooks(1);
-        List<Book> user3Books = generateListOfNBooks(5);
+
 
         Map<LibraryUser,List<Book>> rentedBooks = new HashMap<>();
 

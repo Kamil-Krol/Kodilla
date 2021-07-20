@@ -7,10 +7,12 @@ public class LibraryUser {
     private String lastname;
     private String peselId;
 
+
     public LibraryUser(String firstname, String lastname, String peselId) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.peselId = peselId;
+
     }
 
     public String getFirstname() {
@@ -36,6 +38,8 @@ public class LibraryUser {
     public void setPeselId(String peselId) {
         this.peselId = peselId;
     }
+
+
 
     @Override
     public boolean equals(Object o) {
