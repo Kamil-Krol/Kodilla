@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class World {
-    private List<Continent> continents = new ArrayList<>();
+    private List<Continent> continents;
 
     public World(List<Continent> continents) {
         this.continents = continents;
