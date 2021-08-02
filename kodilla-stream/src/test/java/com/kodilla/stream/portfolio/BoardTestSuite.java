@@ -2,6 +2,7 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -17,6 +18,45 @@ class BoardTestSuite {
 
         //Then
         assertEquals(3, project.getTaskLists().size());
+    }
+
+    @Test
+    void testAddTaskListFindLongTasks() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();               // [1]
+        inProgressTasks.add(new TaskList("In progress"));                 // [2]
+        long longTasks = project.getTaskLists().stream()                  // [3]
+                .filter(inProgressTasks::contains)                             // [4]
+                .flatMap(tl -> tl.getTasks().stream())                         // [5]
+                .map(Task::getCreated)                                         // [6]
+                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)  // [7]
+                .count();                                                      // [8]
+
+        //Then
+        assertEquals(2, longTasks);                                       // [9]
+    }
+
+    @Test
+    void testAddTaskListFindOutdatedTasks() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> undoneTasks = new ArrayList<>();             // [1]
+        undoneTasks.add(new TaskList("To do"));                     // [2]
+        undoneTasks.add(new TaskList("In progress"));               // [3]
+        List<Task> tasks = project.getTaskLists().stream()          // [4]
+                .filter(undoneTasks::contains)                           // [5]
+                .flatMap(tl -> tl.getTasks().stream())                   // [6]
+                .filter(t -> t.getDeadline().isBefore(LocalDate.now()))  // [7]
+                .collect(toList());                                      // [8]
+
+        //Then
+        assertEquals(1, tasks.size());                              // [9]
+        assertEquals("HQLs for analysis", tasks.get(0).getTitle());
     }
 
     @Test
