@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.OptionalDouble;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,6 +39,25 @@ class BoardTestSuite {
 
         //Then
         assertEquals(2, longTasks);                                       // [9]
+    }
+
+    @Test
+    void testAddTaskListAverageWorkingOnTask()
+    {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+
+        double averageTime = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream()).mapToInt(x -> x.getCreated().getDayOfMonth()).average().getAsDouble();
+        double roundAverageTime = Math.round(averageTime);
+
+        //Then
+        assertEquals(13,roundAverageTime);
     }
 
     @Test
