@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 
 public class FileReaderWithoutHandling {
 
-    public void readFile() {
+    public void readFile() throws IOException {
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("k.txt").getFile());
-        //Stream<String> fileLines = Files.lines(Paths.get(file.getPath()));
-        //fileLines.forEach(System.out::println);
+        File file = new File(classLoader.getResource("usernames.txt").getFile());
+        Stream<String> fileLines = Files.lines(Paths.get(file.getPath()));
+        fileLines.forEach(System.out::println);
     }
 }
