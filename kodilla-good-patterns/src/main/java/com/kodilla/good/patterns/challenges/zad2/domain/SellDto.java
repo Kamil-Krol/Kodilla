@@ -1,8 +1,8 @@
 package com.kodilla.good.patterns.challenges.zad2.domain;
 
 public class SellDto {
-    public User user;
-    public boolean isSold;
+    private User user;
+    private boolean isSold;
 
     public SellDto(final User user, final boolean isSold)
     {
