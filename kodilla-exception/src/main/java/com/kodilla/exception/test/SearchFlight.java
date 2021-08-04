@@ -2,7 +2,7 @@ package com.kodilla.exception.test;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
+
 
 public class SearchFlight {
 
@@ -16,9 +16,10 @@ public class SearchFlight {
 
         if(flightMap.containsKey(flight.getArrivalAirport()))
         {
-            //boolean result = flightMap.get(flight.getArrivalAirport()).booleanValue();
-            Boolean result = flightMap.entrySet().stream().filter(e-> flight.getArrivalAirport().equals(e.getKey())).map(x->x.getValue()).
-
+            Boolean result = flightMap.entrySet().stream()
+                    .filter(e-> flight.getArrivalAirport()
+                    .equals(e.getKey()))
+                    .anyMatch(e->e.getValue());
 
             if (result) {
                 System.out.println("Do you want to book this flight?");
