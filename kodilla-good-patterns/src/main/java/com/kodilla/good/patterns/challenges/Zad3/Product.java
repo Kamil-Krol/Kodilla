@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges.Zad3;
 
-abstract class Product {
+public class Product {
     private String product;
     private String type;
     private int quantity;
