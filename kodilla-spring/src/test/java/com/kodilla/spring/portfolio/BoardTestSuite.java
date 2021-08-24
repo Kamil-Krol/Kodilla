@@ -16,7 +16,6 @@ public class BoardTestSuite {
         //Given
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = applicationContext.getBean(Board.class);
-        board = 
         //When
         boolean result = applicationContext.containsBean("board");
         //Then

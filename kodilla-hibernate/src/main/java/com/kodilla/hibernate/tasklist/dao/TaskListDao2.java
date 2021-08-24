@@ -9,6 +9,6 @@ import java.util.List;
 
 @Transactional
 @Repository
-public interface TaskListDao extends CrudRepository<TaskList2, Integer> {
+public interface TaskListDao2 extends CrudRepository<TaskList2, Integer> {
     List<TaskList2> findByListName(String listName);
 }
