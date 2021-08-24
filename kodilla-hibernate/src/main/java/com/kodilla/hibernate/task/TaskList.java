@@ -2,51 +2,68 @@ package com.kodilla.hibernate.task;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "TASKSLIST")
+@Table(name="TASKLISTS")
 public class TaskList {
 
     private int id;
     private String listName;
-    private String descryption;
+    private String description;
+    private List<Task> tasks = new ArrayList<>();
 
     public TaskList() {
     }
 
-    public TaskList(int id, String listName, String descryption) {
-        this.id = id;
+    public TaskList(String listName, String description) {
         this.listName = listName;
-        this.descryption = descryption;
+        this.description = description;
     }
 
     @Id
-    @GeneratedValue
     @NotNull
-    @Column(name = "ID", unique = true)
+    @GeneratedValue
+    @Column(name="ID", unique=true)
     public int getId() {
         return id;
     }
 
-    @Column(name = "LISTNAME")
+    @NotNull
+    @Column(name="LISTNAME")
     public String getListName() {
         return listName;
     }
 
-    @Column(name = "DESCRYPTION")
-    public String getDescryption() {
-        return descryption;
+    @Column(name = "DESCRIPTION")
+    public String getDescription() {
+        return description;
     }
 
-    public void setId(int id) {
+    @OneToMany(
+            targetEntity = Task.class,
+            mappedBy = "taskList",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    private void setId(int id) {
         this.id = id;
     }
 
-    public void setListName(String listName) {
+    private void setListName(String listName) {
         this.listName = listName;
     }
 
-    public void setDescryption(String descryption) {
-        this.descryption = descryption;
+    private void setDescription(String description) {
+        this.description = description;
+    }
+
+    private void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }
