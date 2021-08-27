@@ -2,20 +2,19 @@ package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.Task;
 import com.kodilla.hibernate.task.TaskFinancialDetails;
-import com.kodilla.hibernate.task.TaskList;
+import com.kodilla.hibernate.task.TasksList;
 
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 @SpringBootTest
-public class TaskListDaoTestSuite {
+public class TasksListDaoTestSuite {
 
         private static final String LISTNAME = "LISTNAME";
 
@@ -32,15 +31,15 @@ public class TaskListDaoTestSuite {
         TaskFinancialDetails tfd2 = new TaskFinancialDetails(new BigDecimal(10), false);
         task.setTaskFinancialDetails(tfd);
         task2.setTaskFinancialDetails(tfd2);
-        TaskList taskList = new TaskList(LISTNAME, "ToDo tasks");
-        taskList.getTasks().add(task);
-        taskList.getTasks().add(task2);
-        task.setTaskList(taskList);
-        task2.setTaskList(taskList);
+        TasksList tasksList = new TasksList(LISTNAME, "ToDo tasks");
+        tasksList.getTasks().add(task);
+        tasksList.getTasks().add(task2);
+        task.setTaskList(tasksList);
+        task2.setTaskList(tasksList);
 
         //When
-        taskListDao.save(taskList);
-        int id = taskList.getId();
+        taskListDao.save(tasksList);
+        int id = tasksList.getId();
 
         //Then
         assertNotEquals(0, id);

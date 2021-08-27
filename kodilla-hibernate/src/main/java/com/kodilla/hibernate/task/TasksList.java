@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="TASKLISTS")
-public final class TaskList {
+@Table(name="TASKSLISTS")
+public final class TasksList {
 
     private int id;
     private String listName;
     private String description;
     private List<Task> tasks = new ArrayList<>();
 
-    public TaskList() {
+    public TasksList() {
     }
 
-    public TaskList(String listName, String description) {
+    public TasksList(String listName, String description) {
         this.listName = listName;
         this.description = description;
     }

@@ -11,7 +11,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class TaskList2DaoTestSuite {
+public class TasksList2DaoTestSuite {
 
     @Autowired
     private TaskListDao2 taskListDao2;

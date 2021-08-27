@@ -13,7 +13,7 @@ public final class Task {
     private Date created;
     private int duration;
     private TaskFinancialDetails taskFinancialDetails;
-    private TaskList taskList;
+    private TasksList tasksList;
 
     public Task() {
     }
@@ -60,12 +60,12 @@ public final class Task {
 
     @ManyToOne
     @JoinColumn(name = "TASKLISTS_ID")
-    public TaskList getTaskList() {
-        return taskList;
+    public TasksList getTaskList() {
+        return tasksList;
     }
 
-    public void setTaskList(TaskList taskList) {
-        this.taskList = taskList;
+    public void setTaskList(TasksList tasksList) {
+        this.tasksList = tasksList;
     }
 
     public void setId(int id) {
