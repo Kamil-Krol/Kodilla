@@ -52,6 +52,7 @@ class BoardTestSuite {
             System.out.println(e);
         }
 
+
         //When
         board.getLists().remove(listToDo);
 
