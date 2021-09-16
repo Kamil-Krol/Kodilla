@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public final class Book {
 
-     String title;
-     String author;
-     LocalDate publicationDate;
+     private String title;
+     private String author;
+     private LocalDate publicationDate;
 
     public Book( String title,  String author,  LocalDate publicationDate) {
         this.title = title;
