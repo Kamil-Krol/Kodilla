@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.zad5;
 
-import java.util.LinkedList;
-import java.util.List;
 
 public class Main {
 
@@ -15,22 +13,17 @@ public class Main {
         switch (searchFlight.getSearchType()) {
             case "byConnectingFlight":
 
-                searchingProcessor.searchByConnectingFlight(flightRepository.flightrepo(), searchFlight);
+                searchingProcessor.searchByConnectingFlight(flightRepository.getFlightRepo(), searchFlight);
                 break;
             case "byArrival":
 
-                searchingProcessor.searchByArrival(flightRepository.flightrepo(), searchFlight);
+                searchingProcessor.searchByArrival(flightRepository.getFlightRepo(), searchFlight);
                 break;
             case "byDeparture":
 
-                searchingProcessor.searchByDeparture(flightRepository.flightrepo(), searchFlight);
+                searchingProcessor.searchByDeparture(flightRepository.getFlightRepo(), searchFlight);
                 break;
 
         }
-
-
-        //  SearchFlight searchFlight = new SearchFlight(new MyInformationService(), new MyRepository(), new MyService());
-
-
     }
 }

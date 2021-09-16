@@ -6,13 +6,7 @@ import java.util.Map;
 
 public class FlightRepository {
 
-//    private Map<DepartureAirport,ArrivalAirport> flight = new HashMap<>();
-//
-//    public FlightRepository(Map<DepartureAirport, ArrivalAirport> flight) {
-//        this.flight = flight;
-//    }
-
-    public Map<DepartureAirport,ArrivalAirport> flightrepo()
+    public Map<DepartureAirport,ArrivalAirport> getFlightRepo()
     {
 
         Map<DepartureAirport,ArrivalAirport> flights = new HashMap<>();

@@ -30,7 +30,4 @@ public class SearchFlight {
     public String getConnectingFlight() {
         return connectingFlight;
     }
-
-
-//
 }
