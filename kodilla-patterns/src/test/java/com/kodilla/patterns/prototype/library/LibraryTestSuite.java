@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LibraryTestSuite {
 
     @Test
-    public void testGetBooks()
+    public void testGetBooks() throws CloneNotSupportedException
     {
         //Given
         Library library = new Library("Library");
@@ -24,27 +24,18 @@ public class LibraryTestSuite {
 
         //shallow clone
         Library libraryClone = null;
-        try {
-            libraryClone = library.shallowCopy();
-            libraryClone.setName("Library Clone");
-        }
-        catch (CloneNotSupportedException e)
-        {
-            System.out.println(e);
-        }
+
+        libraryClone = library.shallowCopy();
+        libraryClone.setName("Library Clone");
+
         System.out.println(library);
         System.out.println(libraryClone);
 
         //deepClone
         Library deepClonedLibrary = null;
-        try {
-            deepClonedLibrary = library.deepCopy();
-            deepClonedLibrary.setName("deepClonedLibrary");
-        }
-        catch(CloneNotSupportedException e)
-        {
-            System.out.println(e);
-        }
+
+        deepClonedLibrary = library.deepCopy();
+        deepClonedLibrary.setName("deepClonedLibrary");
 
         //When
 
@@ -53,8 +44,6 @@ public class LibraryTestSuite {
         int size = library.getBooks().size();
         int cloneSize = libraryClone.getBooks().size();
         int deepCloneSize = deepClonedLibrary.getBooks().size();
-
-
 
         //Then
         assertEquals(2,size);
