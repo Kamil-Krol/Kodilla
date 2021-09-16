@@ -8,15 +8,13 @@ public class SearchFlight {
 
     public void findFlight(Flight flight) throws NullPointerException
     {
-        Map<String, Boolean> flightMap = new HashMap<>();
-        flightMap.put("Amsterdam",false);
-        flightMap.put("Poznan",false);
-        flightMap.put("Berlin",true);
+        Map<String,Boolean> map = new HashMap<>();
+       FlightMap flightMap = new FlightMap(map);
 
 
-        if(flightMap.containsKey(flight.getArrivalAirport()))
+        if(flightMap.getFlightMap().containsKey(flight.getArrivalAirport()))
         {
-            Boolean result = flightMap.entrySet().stream()
+            Boolean result = flightMap.getFlightMap().entrySet().stream()
                     .filter(e-> flight.getArrivalAirport()
                     .equals(e.getKey()))
                     .anyMatch(e->e.getValue());
