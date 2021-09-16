@@ -1,6 +1,5 @@
 package com.kodilla.good.patterns.challenges.Zad3;
 
-import java.time.LocalDateTime;
 
 public class HealthyShop {
 
@@ -20,7 +19,7 @@ public class HealthyShop {
     {
         informationService.inform();
         System.out.println("Delivery type: " + deliveryType);
-        repository.boughtProducts(product);
+        repository.saveBoughtProduct(product);
         service.buy(product.getProduct(),product.getType(),product.getQuantity(),product.getProvider());
         return new BoughtDto(product,true);
     }

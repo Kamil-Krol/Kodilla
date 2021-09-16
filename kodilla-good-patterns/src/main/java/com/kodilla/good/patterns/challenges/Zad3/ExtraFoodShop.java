@@ -20,7 +20,7 @@ public BoughtDto process(final Product product, LocalDateTime deliveryTime)
 {
     informationService.inform();
     System.out.println("Delivery time: " + deliveryTime.getHour() + ":" + String.format("%02d", deliveryTime.getMinute()) + "      " + deliveryTime.getDayOfMonth() + "." + deliveryTime.getMonth() + "." + deliveryTime.getYear());
-    repository.boughtProducts(product);
+    repository.saveBoughtProduct(product);
     service.buy(product.getProduct(),product.getType(),product.getQuantity(),product.getProvider());
     return new BoughtDto(product,true);
 }

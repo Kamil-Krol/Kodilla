@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenges.Zad3;
 
-import java.time.LocalDateTime;
+
 
 public class GlutenFreeShop {
 
@@ -19,7 +19,7 @@ public class GlutenFreeShop {
     {
         informationService.inform();
         System.out.println("Delivery fee: " + deliveryFee);
-        repository.boughtProducts(product);
+        repository.saveBoughtProduct(product);
         service.buy(product.getProduct(),product.getType(),product.getQuantity(),product.getProvider());
         return new BoughtDto(product,true);
     }
