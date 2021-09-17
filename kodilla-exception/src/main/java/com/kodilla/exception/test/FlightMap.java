@@ -7,7 +7,7 @@ public class FlightMap {
 
     private Map<String,Boolean> flightMap = new HashMap<>();
 
-    public FlightMap(Map<String, Boolean> flightMap) {
+    public FlightMap() {
         flightMap.put("Amsterdam",false);
         flightMap.put("Poznan",false);
         flightMap.put("Berlin",true);

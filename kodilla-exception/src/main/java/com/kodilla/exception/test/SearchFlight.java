@@ -8,9 +8,7 @@ public class SearchFlight {
 
     public void findFlight(Flight flight) throws NullPointerException
     {
-        Map<String,Boolean> map = new HashMap<>();
-       FlightMap flightMap = new FlightMap(map);
-
+       FlightMap flightMap = new FlightMap();
 
         if(flightMap.getFlightMap().containsKey(flight.getArrivalAirport()))
         {
