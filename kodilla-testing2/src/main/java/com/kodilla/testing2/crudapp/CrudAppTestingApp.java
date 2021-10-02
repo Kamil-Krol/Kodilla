@@ -11,6 +11,7 @@ public class CrudAppTestingApp{
     public static final String XPATH_TEXTAREA = "//html/body/main/section/form/fieldset[2]/textarea";
     public static final String XPATH_WAIT_FOR = "//select[1]";
     public static final String XPATH_SELECT = "//div[contains(@class, \"tasks-container\")]/form/div/fieldset/select[1]";
+    public static final String XPATH_SELECT2 = "//select[1][@class=\"datatable__select\"]";
 
     public static void main(String[] args) {
         WebDriver driver = WebDriverConfig.getDriver(WebDriverConfig.FIREFOX);
@@ -24,7 +25,7 @@ public class CrudAppTestingApp{
 
         while (!driver.findElement(By.xpath(XPATH_WAIT_FOR)).isDisplayed());
 
-        WebElement selectCombo = driver.findElement(By.xpath(XPATH_SELECT));
+        WebElement selectCombo = driver.findElement(By.xpath(XPATH_SELECT2));
         Select selectBoard = new Select(selectCombo);
         selectBoard.selectByIndex(1);
     }
