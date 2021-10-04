@@ -5,6 +5,7 @@ import com.kodilla.hibernate.task.Task;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class Item {
     public Item( BigDecimal price, int quantity) {
         this.price = price;
         this.quantity = quantity;
+        this.value = price.multiply(new BigDecimal(quantity), MathContext.DECIMAL32);
     }
 
     public Item() { }
@@ -58,13 +60,13 @@ public class Item {
     }
 
     @NotNull
-    @Column(name = "PRODUCT_NAME")
+    @Column(name = "PRODUCT_VALUE")
     public BigDecimal getValue() {
         return value;
     }
 
     public void setValue(BigDecimal value) {
-        this.value = price.multiply(BigDecimal.valueOf(quantity));
+        this.value = value;
     }
 
     @OneToMany(
