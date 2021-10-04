@@ -7,6 +7,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+@NamedQuery(
+        name = "Company.find",
+        query = "FROM Company WHERE name LIKE '%Dat%'"
+)
 @NamedNativeQuery(
         name = "Company.findByFirstThreeCharacters",
         query = "SELECT * FROM COMPANIES " +
