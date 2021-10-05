@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class InvoiceDaoTestSuite {
@@ -41,8 +42,8 @@ public class InvoiceDaoTestSuite {
         product5.setItem(item3);
         Invoice invoice1 = new Invoice("1");
         invoice1.getItems().add(item1);
-        invoice1.getItems().add(item3);
         invoice1.getItems().add(item2);
+        invoice1.getItems().add(item3);
         item1.setInvoice(invoice1);
         item2.setInvoice(invoice1);
         item3.setInvoice(invoice1);
@@ -53,6 +54,19 @@ public class InvoiceDaoTestSuite {
 
         //Then
         assertNotEquals(0, id);
+        assertEquals("1",invoice1.getNumber());
+        assertEquals(4,invoice1.getItems().get(0).getQuantity());
+        assertEquals(5,invoice1.getItems().get(1).getQuantity());
+        assertEquals(10,invoice1.getItems().get(2).getQuantity());
+        assertEquals(new BigDecimal("40"),invoice1.getItems().get(0).getValue());
+        assertEquals(new BigDecimal("100"),invoice1.getItems().get(1).getValue());
+        assertEquals(new BigDecimal("300"),invoice1.getItems().get(2).getValue());
+        assertEquals("Carrot",invoice1.getItems().get(0).getProducts().get(0).getName());
+        assertEquals("Apple",invoice1.getItems().get(0).getProducts().get(1).getName());
+        assertEquals("Apple2",invoice1.getItems().get(1).getProducts().get(0).getName());
+        assertEquals("Orange",invoice1.getItems().get(1).getProducts().get(1).getName());
+        assertEquals("Orange2",invoice1.getItems().get(2).getProducts().get(0).getName());
+
 
     }
 }
