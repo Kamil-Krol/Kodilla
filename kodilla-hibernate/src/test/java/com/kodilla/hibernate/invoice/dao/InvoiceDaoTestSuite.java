@@ -51,6 +51,7 @@ public class InvoiceDaoTestSuite {
         //When
         invoiceDao.save(invoice1);
         int id = invoice1.getId();
+        Invoice invoiceFromDb = invoiceDao.findById(id).get();
 
         //Then
         assertNotEquals(0, id);
@@ -66,6 +67,7 @@ public class InvoiceDaoTestSuite {
         assertEquals("Apple2",invoice1.getItems().get(1).getProducts().get(0).getName());
         assertEquals("Orange",invoice1.getItems().get(1).getProducts().get(1).getName());
         assertEquals("Orange2",invoice1.getItems().get(2).getProducts().get(0).getName());
+        assertEquals(id, invoiceFromDb.getId());
 
 
     }
