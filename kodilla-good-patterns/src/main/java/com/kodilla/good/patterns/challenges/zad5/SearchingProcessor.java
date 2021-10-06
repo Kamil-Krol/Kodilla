@@ -38,11 +38,22 @@ public class SearchingProcessor {
 
     public void searchByConnectingFlight(Map<DepartureAirport,ArrivalAirport> flights,SearchFlight searchFlight)
     {
-//        Map<DepartureAirport,ArrivalAirport> filteredMap = flights.entrySet().stream()
-//                .filter(m -> searchFlight.getConnectingFlight().equals(m.getValue()))
-//                .collect(Collectors.toMap(e -> e.getKey(),v -> v.getValue()));
-//        informationService.inform();
-//        repository.repo(filteredMap);
-//        service.book(filteredMap);
+        Map<DepartureAirport,ArrivalAirport> filteredMapByConnectingFLights = flights.entrySet().stream()
+                .filter(m -> (searchFlight.getConnectingFlight().equals(m.getValue()) ||
+                        searchFlight.getConnectingFlight().equals(m.getKey())))
+                .collect(Collectors.toMap(e -> e.getKey(),v -> v.getValue()));
+
+        Map<DepartureAirport,ArrivalAirport> firstFlight = filteredMapByConnectingFLights.entrySet().stream()
+                .filter(m -> searchFlight.getDeparture().equals(m.getValue()))
+                .collect(Collectors.toMap(e -> e.getKey(),v -> v.getValue()));
+
+        Map<DepartureAirport,ArrivalAirport> secondFlight = filteredMapByConnectingFLights.entrySet().stream()
+                .filter(m -> searchFlight.getArrival().equals(m.getValue()))
+                .collect(Collectors.toMap(e -> e.getKey(),v -> v.getValue()));
+        informationService.inform();
+        repository.repo(firstFlight);
+        repository.repo(secondFlight);
+        service.book(firstFlight);
+        service.book(secondFlight);
     }
 }

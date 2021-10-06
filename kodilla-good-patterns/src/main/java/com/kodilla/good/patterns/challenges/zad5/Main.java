@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         FlightRepository flightRepository = new FlightRepository();
-        SearchFlight searchFlight = new SearchFlight("Gdansk", "Wroclaw", "Warszawa", "byArrival");
+        SearchFlight searchFlight = new SearchFlight("Wroclaw", "Gdansk", "Warszawa", "byConnectingFlight");
 
         SearchingProcessor searchingProcessor = new SearchingProcessor(new MyInformationService(), new MyRepository(), new MyService());
 
