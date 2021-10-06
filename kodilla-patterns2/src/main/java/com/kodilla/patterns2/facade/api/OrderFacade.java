@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class OrderFacade {
 
     private static  Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
-    private  ShopService shopService;
+    private final ShopService shopService;
 
     @Autowired
     public OrderFacade(ShopService shopService) {
