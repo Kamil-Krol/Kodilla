@@ -11,7 +11,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Company.find",
-        query = "FROM Company WHERE name LIKE '%Dat%'"
+        query = "FROM Company WHERE name LIKE '%@name%'"
 )
 @NamedNativeQuery(
         name = "Company.findByFirstThreeCharacters",
