@@ -68,6 +68,7 @@ public class InvoiceDaoTestSuite {
         assertEquals("Orange",invoice1.getItems().get(1).getProducts().get(1).getName());
         assertEquals("Orange2",invoice1.getItems().get(2).getProducts().get(0).getName());
         assertEquals(id, invoiceFromDb.getId());
+        assertEquals("1",invoiceFromDb.getNumber());
 
 
     }

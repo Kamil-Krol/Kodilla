@@ -18,6 +18,9 @@ public class Invoice {
         this.number = number;
     }
 
+    public Invoice() {
+
+    }
 
 
     @Id
